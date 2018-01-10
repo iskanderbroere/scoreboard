@@ -1,7 +1,8 @@
 /* src/App.css */
 
-@import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
 
 body {
-  font-family: 'Orbitron', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Lobster', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  color: salmon;
 }
