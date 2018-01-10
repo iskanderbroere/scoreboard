@@ -19,12 +19,7 @@ class Player extends PureComponent {
     plusOne: PropTypes.func.isRequired
   }
 
-  increasePlayerScore = () => {
-    const { id } = this.props
-    // onChange(id, { score: score + 1 })
-    // console.log(id)
-    this.props.plusOne(id)
-  }
+  increasePlayerScore = () => { this.props.plusOne(this.props.id) }
 
   render() {
     const { name, score } = this.props
@@ -39,8 +34,6 @@ class Player extends PureComponent {
   }
 }
 
-const mapDispatchToProps = {
-  plusOne
-}
+const mapDispatchToProps = { plusOne }
 
 export default connect(null, mapDispatchToProps)(Player)

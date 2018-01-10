@@ -10,16 +10,9 @@ export const initialState = [
 ]
 
 export default function(state = initialState, action = {}) {
-  // console.log(state)
-  // console.log(action.type)
-  // console.log(plusOne.type)
   if (action.type === 'PLUS_ONE') {
     return state.map((player) => {
-      // console.log(player)
-      // console.log(player.id)
-      // console.log('payload', action.payload)
       if (player.id !== action.payload) return player
-      console.log(player)
       return { ...player, score: player.score + 1 }
     })
   }
