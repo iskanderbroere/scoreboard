@@ -1,20 +1,20 @@
 // src/containers/Board.js
 
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Title from '../components/Title'
 import Podium from './Podium'
 import Player, { playerShape } from '../components/Player'
 import './Board.css'
 
-export default class Board extends PureComponent {
+class Board extends PureComponent {
   static propTypes = {
     players: PropTypes.arrayOf(playerShape).isRequired,
-    updatePlayer: PropTypes.func.isRequired
   }
 
   render() {
-    const { players, updatePlayer } = this.props
+    const { players } = this.props
 
     return (
       <div>
@@ -26,14 +26,16 @@ export default class Board extends PureComponent {
           {players
             .sort((p1, p2) => (p2.score - p1.score))
             .map((player, index) => (
-            <Player
-              key={index}
-              onChange={updatePlayer}
-              { ...player }
-            />
+            <Player key={index} { ...player } />
           ))}
         </ul>
       </div>
     )
   }
 }
+
+const mapStateToProps = ({ players }) => ({
+  players
+})
+
+export default connect(mapStateToProps)(Board)
